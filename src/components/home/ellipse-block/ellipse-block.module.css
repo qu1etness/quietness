@@ -1,0 +1,6 @@
+.background {
+    background-image: url("/images/background-semicircle.png");
+    background-size: auto 80%;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+}
