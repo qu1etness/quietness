@@ -39,6 +39,8 @@ export default function RootLayout({
         className={`${inter.variable} ${antonio.variable} ${italiana.variable} antialiased`}
       >
         <ReactLenis root>
+          <Header/>
+          <FollowUsBar/>
           <main>{children}</main>
         </ReactLenis>
       </body>
