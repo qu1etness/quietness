@@ -21,7 +21,7 @@ const EllipseBlock = () => {
       ref={targetRef}
       className={cn(
         css.background,
-        "aspect-1/3 absolute top-[550px] md:top-[200px] right-auto md:right-1/8 xl:right-1/6 md:translate-0 md:left-auto rounded-full left-1/2 translate-x-[-50%] bg-[#161211]",
+        "aspect-1/3 absolute top-[580px] md:top-[200px] right-auto md:right-1/8 xl:right-1/6 md:translate-0 md:left-auto rounded-full left-1/2 translate-x-[-50%] bg-[#161211]",
       )}
     >
       <div className={"w-full h-full relative"}>

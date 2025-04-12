@@ -12,6 +12,10 @@
   align-items: center;
 }
 
+* {
+  scrollbar-width: thin;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

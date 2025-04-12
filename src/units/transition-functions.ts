@@ -1,7 +1,8 @@
 import gsap from "gsap";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import React from "react";
+import React, { useState } from "react";
 import { useGSAP } from "@gsap/react";
+import { usePathname } from "next/navigation";
 
 interface ITransitionOut {
   e: React.MouseEvent<HTMLAnchorElement>;
@@ -63,7 +64,14 @@ export const transitionOutFunction = ({
   }
 };
 
-export const useTransitionIn = () => {
+interface ITransitionIn {
+  firstLoadTarget: React.RefObject<HTMLElement>;
+}
+
+export const useTransitionIn = ({ firstLoadTarget }: ITransitionIn) => {
+  const [isFirstLoad, setIsFirstLoad] = useState(true);
+  const pathname = usePathname();
+
   useGSAP(() => {
     const bannerOne = document.getElementById("banner-1");
     const bannerTwo = document.getElementById("banner-2");
@@ -75,45 +83,68 @@ export const useTransitionIn = () => {
     const bannerEight = document.getElementById("banner-8");
 
     if (
-      bannerOne &&
-      bannerTwo &&
-      bannerThree &&
-      bannerFour &&
-      bannerFive &&
-      bannerSix &&
-      bannerSeven &&
-      bannerEight
-    ) {
-      const timeline = gsap.timeline();
+      !bannerOne &&
+      !bannerTwo &&
+      !bannerThree &&
+      !bannerFour &&
+      !bannerFive &&
+      !bannerSix &&
+      !bannerSeven &&
+      !bannerEight
+    )
+      return;
 
-      timeline
-        .set(
-          [
-            bannerOne,
-            bannerThree,
-            bannerFive,
-            bannerSeven,
-            bannerTwo,
-            bannerFour,
-            bannerSix,
-            bannerEight,
-          ],
-          {
-            xPercent: 0,
-          },
-        )
-        .to([bannerOne, bannerThree, bannerFive, bannerSeven], {
+    const timeline = gsap.timeline();
+    if (isFirstLoad) {
+      timeline.pause();
+      const titleTl = gsap.timeline();
+      titleTl.set(firstLoadTarget.current, { yPercent: -100 });
+      titleTl.to(firstLoadTarget.current, {
+        yPercent: 0,
+        opacity: 1,
+        delay: 1,
+      });
+      titleTl.to(firstLoadTarget.current, {
+        yPercent: 100,
+        opacity: 0,
+        delay: 0.6,
+        onComplete: () => timeline.play(),
+      });
+      setIsFirstLoad(false);
+    }
+    timeline
+      .set(
+        [
+          bannerOne,
+          bannerThree,
+          bannerFive,
+          bannerSeven,
+          bannerTwo,
+          bannerFour,
+          bannerSix,
+          bannerEight,
+        ],
+        {
+          xPercent: 0,
+        },
+      )
+      .to(
+        [bannerOne, bannerThree, bannerFive, bannerSeven],
+        {
           xPercent: 100,
           stagger: 0.1,
-        })
-        .to(
-          [bannerTwo, bannerFour, bannerSix, bannerEight],
-          {
-            xPercent: -100,
-            stagger: 0.1,
-          },
-          "0",
-        );
-    }
-  }, []);
+          delay: isFirstLoad ? 0 : 0.6,
+        },
+        "0",
+      )
+      .to(
+        [bannerTwo, bannerFour, bannerSix, bannerEight],
+        {
+          xPercent: -100,
+          stagger: 0.1,
+          delay: isFirstLoad ? 0 : 0.6,
+        },
+        "0",
+      );
+  }, [pathname]);
 };

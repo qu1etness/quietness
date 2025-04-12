@@ -71,7 +71,10 @@ const TransitionLink = ({ href, label, index }: IProps) => {
         href={href}
         className={cn(
           path == href ? "text-background" : "text-white",
-          "z-30 font-bold text-8xl flex justify-center py-6 w-full h-full",
+          "z-30 font-bold text-5xl flex justify-center py-3 w-full h-full text-center",
+          "md:text-6xl md:py-4",
+          "lg:text-7xl lg:py-4",
+          "2xl:text-8xl 2xl:py-6",
         )}
       >
         <motion.span className={"perspective-[80vh]"}>{label}</motion.span>
@@ -92,30 +95,34 @@ const TransitionLink = ({ href, label, index }: IProps) => {
             <motion.div
               className={cn(
                 css.container,
-                "border-main-text border-b-main-text border-b-2 border-solid",
+                "border-main-text border-b-main-text border-b-2 border-solid text-main-text text-center leading-52 inline-block whitespace-nowrap",
               )}
               key={index}
             >
               <span
                 className={
-                  "text-main-text text-center text-[155px] pb-5 leading-52 inline-block whitespace-nowrap"
+                  "2xl:text-[155px] lg:text-[110px] md:text-[100px] md:pb-3 text-[78px] pb-2"
                 }
               >
                 &nbsp;&#8859;&nbsp;
               </span>
-              <span className="text-main-text text-center text-[168px] leading-52 inline-block whitespace-nowrap">
+              <span
+                className={
+                  "2xl:text-[168px] lg:text-[125px] md:text-[110px] text-[90px]"
+                }
+              >
                 {label}
               </span>
               <span
                 className={
-                  "text-main-text text-[155px] leading-52 pb-5 inline-block whitespace-nowrap"
+                  "2xl:text-[155px] lg:text-[110px] md:text-[100px] md:pb-3 text-[78px] pb-2"
                 }
               >
                 &nbsp;&#8859;&nbsp;
               </span>
               <span
                 className={
-                  "text-main-text text-[168px] leading-52 inline-block whitespace-nowrap"
+                  "2xl:text-[168px] lg:text-[125px] md:text-[110px] text-[90px]"
                 }
               >
                 {label}

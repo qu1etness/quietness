@@ -6,6 +6,7 @@ import { ReactLenis } from "@/lib/lenis";
 import Header from "@/templates/header";
 import "./globals.css";
 import { FollowUsBar } from "@/templates/follow-us-bar";
+import PageTransition from "@/templates/page-transition";
 
 const italiana = Italiana({
   weight: "400",
@@ -39,9 +40,10 @@ export default function RootLayout({
         className={`${inter.variable} ${antonio.variable} ${italiana.variable} antialiased`}
       >
         <ReactLenis root>
-          <Header/>
-          <FollowUsBar/>
+          <Header />
+          <FollowUsBar />
           <main>{children}</main>
+          <PageTransition />
         </ReactLenis>
       </body>
     </html>

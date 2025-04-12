@@ -2,7 +2,7 @@ const Page = () => {
   return (
     <div
       className={
-        "w-full h-screen flex justify-center align-center text-center font-"
+        "w-full h-1500 flex justify-center align-center text-center  font-"
       }
     >
       About Page

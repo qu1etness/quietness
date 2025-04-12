@@ -2,7 +2,6 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import Link from "next/link";
-import gsap from "gsap";
 import { usePathname, useRouter } from "next/navigation";
 import { NavigationContainer } from "@/components/header/navigation-container";
 import { transitionOutFunction } from "@/units/transition-functions";
