@@ -24,8 +24,8 @@ const Template = () => {
           <div
             key={index}
             id={`banner-${index + 1}`}
-            style={{ top: `${topPadding}vh` }}
-            className={"min-w-screen z-50 h-1/8 bg-white fixed left-0"}
+            style={{ top: `${topPadding}dvh` }}
+            className={"min-w-screen z-50 h-[12.5dvh] bg-white fixed left-0"}
           ></div>
         );
       })}

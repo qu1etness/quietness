@@ -5,7 +5,7 @@ import MademoiselleContainer from "@/components/home/mademoiselle-container";
 const Home = () => {
   return (
     <div className={"wrapper "}>
-      <div className={"w-full "}>
+      <div className={"w-full"}>
         <InfiniteTextContainer />
         <EllipseBlock />
         <MademoiselleContainer />

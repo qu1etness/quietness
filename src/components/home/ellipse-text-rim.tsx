@@ -10,7 +10,7 @@ const EllipseTextRim = ({ scrollProgress }: IProps) => {
   const text = useRef(null);
 
   useEffect(() => {
-    scrollProgress.on("change", (e) => {
+    return scrollProgress.on("change", (e) => {
       text?.current.setAttribute("startOffset", e * 50 + "%");
     });
   }, [scrollProgress]);
@@ -19,6 +19,7 @@ const EllipseTextRim = ({ scrollProgress }: IProps) => {
     <svg
       className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
       width="125%"
+      height="110%"
       // height="1648"
       viewBox="0 0 841 2208"
       fill="none"
