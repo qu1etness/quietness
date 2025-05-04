@@ -26,7 +26,7 @@ const Header = () => {
             QUIETNESS
           </Link>
           <button
-            className={"flex gap-2"}
+            className={"flex gap-2 justify-center items-center"}
             onClick={() => setIsOpen((prevState) => !prevState)}
           >
             <span>MENU</span>

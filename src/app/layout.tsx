@@ -43,7 +43,7 @@ export default function RootLayout({
           <Header />
           <FollowUsBar />
           <main>{children}</main>
-          <PageTransition />
+          {/*<PageTransition />*/}
         </ReactLenis>
       </body>
     </html>

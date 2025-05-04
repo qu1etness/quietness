@@ -17,9 +17,9 @@ const EllipseTextRim = ({ scrollProgress }: IProps) => {
 
   return (
     <svg
-      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-      width="125%"
-      height="110%"
+      className="absolute inset-0 h-[110%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+      // width="125%"
+      // height="110%"
       // height="1648"
       viewBox="0 0 841 2208"
       fill="none"
