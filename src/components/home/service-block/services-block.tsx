@@ -7,19 +7,25 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import { RefObject, useRef } from "react";
+import { RefObject } from "react";
 import { cn } from "@/lib/utils";
 
-const ServicesBlock = (containerRef: RefObject<HTMLDivElement>) => {
-  // const containerRef = useRef(null);
+interface IProps {
+  containerRef: RefObject<HTMLDivElement>;
+}
+
+const ServicesBlock = ({ containerRef }: IProps) => {
+  console.log(containerRef.current);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
+    layoutEffect: false,
     offset: ["start center", "end 145%"],
   });
 
   const { scrollYProgress: blocksScroll } = useScroll({
     target: containerRef,
+    layoutEffect: false,
     offset: ["start end", "center center"],
   });
 
@@ -61,19 +67,35 @@ const ServicesBlock = (containerRef: RefObject<HTMLDivElement>) => {
 
   const blocksHeight = useTransform(blocksScroll, [0, 1], ["10%", "33%"]);
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0", "100"]);
-  const positionY = useMotionTemplate`linear-gradient(to bottom, black ${y}%, transparent 0%)`;
+  const circleShadowPosition = useTransform(
+    scrollYProgress,
+    [0, 0.2, 1],
+    ["0%", "5%", "260%"],
+  );
+  const circleShadowRotation = useTransform(
+    scrollYProgress,
+    [0, 0.2, 1],
+    ["0deg", "5deg", "270deg"],
+  );
+
+  const opacityY = useTransform(scrollYProgress, [0, 1], ["0", "100"]);
+  const containerOpacity = useMotionTemplate`linear-gradient(to bottom, black ${opacityY}%, transparent 0%)`;
 
   return (
-    // <div className={"h-[200vh] mt-20 w-full border-2"} ref={containerRef}>
     <div className={"relative w-[410px] ml-[190px] aspect-[1/3.6]"}>
+      <motion.div
+        className={
+          "absolute aspect-square rounded-full blur-3xl bg-linear-to-r/decreasing -z-1 w-[115%] from-[#FEE140]/20 to-[#F5576C]/10 top-20 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        }
+        style={{ y: circleShadowPosition, rotate: circleShadowRotation }}
+      />
       <motion.div
         className={"w-full h-full"}
         style={{
           maskRepeat: "no-repeat",
           WebkitMaskRepeat: "no-repeat",
-          maskImage: positionY,
-          WebkitMaskImage: positionY,
+          maskImage: containerOpacity,
+          WebkitMaskImage: containerOpacity,
         }}
       >
         <div
@@ -112,7 +134,6 @@ const ServicesBlock = (containerRef: RefObject<HTMLDivElement>) => {
         />
       </div>
     </div>
-    // </div>
   );
 };
 
