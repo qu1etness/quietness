@@ -4,7 +4,7 @@ const FollowUsBar = () => {
   return (
     <div
       className={
-        "fixed top-[50dvh] flex flex-col -translate-y-1/2 items-center"
+        "fixed top-[50lvh] flex flex-col -translate-y-1/2 items-center"
       }
     >
       <span

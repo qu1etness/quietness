@@ -17,4 +17,3 @@ const Home = () => {
 };
 
 export default Home;
-// 29DDK-JR347-M297Q-M3QW7-XP3RZ

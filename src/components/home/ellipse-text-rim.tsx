@@ -38,7 +38,7 @@ const EllipseTextRim = ({ scrollProgress }: IProps) => {
       />
       <text
         className="stroke-[#F7EDF6]/50 tracking-[27px] font-antonio text-[76px]"
-        dominantBaseline="hanging"
+        dy="70"
       >
         <textPath ref={text} href="#curve">
           A WONDERFUL SERENITY HAS

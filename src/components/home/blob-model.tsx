@@ -26,10 +26,6 @@ const BlobModel = ({ targetRef, ...props }: IProps) => {
   const prevScroll = useRef(0);
   const currentPosition = useRef({ x: 0, y: 0 });
 
-  // const viewports = useTransform(viewport.width, [], []);
-
-  console.log();
-
   const translateY = useTransform(scrollYProgress, [0, 1], [2, -2]);
   const translateX = useTransform(
     scrollYProgress,
@@ -109,15 +105,3 @@ const BlobModel = ({ targetRef, ...props }: IProps) => {
 useGLTF.preload(`/models/${modelPath}`);
 
 export default BlobModel;
-
-// const config = useControls("Config", {
-//   thickness: { value: 0.2, min: 0, max: 3, step: 0.05 },
-//   roughness: { value: 0, min: 0, max: 1, step: 0.01 },
-//   transmission: { value: 1, min: 0, max: 1, step: 0.1 },
-//   ior: { value: 1.2, min: 0, max: 3, step: 0.1 },
-//   chromaticAberration: { value: 0.02, min: 0, max: 1 },
-//   backside: { value: true },
-// backsideThickness:{ value:
-//   0.05, min: 0, max: 1
-// }
-// });
