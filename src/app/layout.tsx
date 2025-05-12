@@ -39,6 +39,11 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${antonio.variable} ${italiana.variable} antialiased`}
       >
+        <meta
+          name="format-detection"
+          content="telephone=no, date=no, email=no, address=no"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <ReactLenis root>
           <Header />
           <FollowUsBar />

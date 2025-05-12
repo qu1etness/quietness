@@ -3,7 +3,9 @@ import Image from "next/image";
 const FollowUsBar = () => {
   return (
     <div
-      className={"fixed top-1/2 flex flex-col -translate-y-1/2 items-center"}
+      className={
+        "fixed top-[50lvh] flex flex-col -translate-y-1/2 items-center"
+      }
     >
       <span
         className={"font-inter font-bold pb-4 pl-1 [writing-mode:vertical-rl]"}
