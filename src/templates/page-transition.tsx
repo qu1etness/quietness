@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
-import { useTransitionIn } from "@/units/transition-functions";
+import { useTransitionIn } from "@/hooks/useTransitionIn";
 
 const Template = () => {
   const firstLoadTarget = useRef(null);

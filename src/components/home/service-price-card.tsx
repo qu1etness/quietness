@@ -87,7 +87,11 @@ const ServicePriceCard = () => {
                 </span>
               </div>
               <div className={"text-black flex flex-col md:gap-2 gap-[2px]"}>
-                <span className={"font-antonio lg:text-3xl md:text-lg text-sm"}>
+                <span
+                  className={
+                    "font-antonio 2xl:text-4xl xl:text-3xl lg:text-2xl md:text-lg text-sm"
+                  }
+                >
                   14.20 ETH ▾
                 </span>
                 <span

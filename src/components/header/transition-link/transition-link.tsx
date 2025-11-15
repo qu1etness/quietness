@@ -4,7 +4,7 @@ import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import React, { useRef } from "react";
 import { motion } from "motion/react";
-import { textAnimation } from "@/animation/anim";
+import { mountAnim, textAnimation } from "@/animation/anim";
 import { transitionOutFunction } from "@/units/transition-functions";
 import css from "./transition-link.module.css";
 import gsap from "gsap";
@@ -61,9 +61,7 @@ const TransitionLink = ({ href, label, index }: IProps) => {
         css.el,
       )}
       variants={textAnimation}
-      initial="initial"
-      animate="enter"
-      exit="exit"
+      {...mountAnim}
       custom={index}
     >
       <Link

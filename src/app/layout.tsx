@@ -38,6 +38,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${inter.variable} ${antonio.variable} ${italiana.variable} antialiased`}
+        // Bebas Neue | Cal Sans
       >
         <meta
           name="format-detection"
